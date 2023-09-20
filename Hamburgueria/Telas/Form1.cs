@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Hamburgueria
 {
-    public partial class Form1 : Form
+    public partial class TelaLogin : Form
     {
-        public Form1()
+        public TelaLogin()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
