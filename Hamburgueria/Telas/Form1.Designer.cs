@@ -34,9 +34,7 @@
             this.TxtEmail = new System.Windows.Forms.TextBox();
             this.TxtSenha = new System.Windows.Forms.TextBox();
             this.BtnLogin = new System.Windows.Forms.Button();
-            this.RBtnGerente = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.RBtnFuncionario = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // label1
@@ -55,7 +53,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(409, 234);
+            this.label2.Location = new System.Drawing.Point(409, 206);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 25);
             this.label2.TabIndex = 1;
@@ -66,7 +64,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(400, 283);
+            this.label3.Location = new System.Drawing.Point(400, 260);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 25);
             this.label3.TabIndex = 2;
@@ -75,45 +73,35 @@
             // TxtEmail
             // 
             this.TxtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtEmail.Location = new System.Drawing.Point(486, 234);
+            this.TxtEmail.Location = new System.Drawing.Point(486, 206);
             this.TxtEmail.Multiline = true;
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(159, 25);
             this.TxtEmail.TabIndex = 3;
+            this.TxtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEmail_KeyPress);
             // 
             // TxtSenha
             // 
             this.TxtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtSenha.Location = new System.Drawing.Point(486, 283);
+            this.TxtSenha.Location = new System.Drawing.Point(486, 260);
             this.TxtSenha.Multiline = true;
             this.TxtSenha.Name = "TxtSenha";
             this.TxtSenha.Size = new System.Drawing.Size(159, 25);
             this.TxtSenha.TabIndex = 4;
+            this.TxtSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSenha_KeyPress);
             // 
             // BtnLogin
             // 
             this.BtnLogin.BackColor = System.Drawing.Color.White;
             this.BtnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLogin.ForeColor = System.Drawing.Color.Maroon;
-            this.BtnLogin.Location = new System.Drawing.Point(517, 345);
+            this.BtnLogin.Location = new System.Drawing.Point(513, 338);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(102, 36);
             this.BtnLogin.TabIndex = 5;
             this.BtnLogin.Text = "Login";
             this.BtnLogin.UseVisualStyleBackColor = false;
-            // 
-            // RBtnGerente
-            // 
-            this.RBtnGerente.AutoSize = true;
-            this.RBtnGerente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RBtnGerente.ForeColor = System.Drawing.Color.Transparent;
-            this.RBtnGerente.Location = new System.Drawing.Point(549, 157);
-            this.RBtnGerente.Name = "RBtnGerente";
-            this.RBtnGerente.Size = new System.Drawing.Size(96, 28);
-            this.RBtnGerente.TabIndex = 6;
-            this.RBtnGerente.TabStop = true;
-            this.RBtnGerente.Text = "Gerente";
-            this.RBtnGerente.UseVisualStyleBackColor = true;
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // label4
             // 
@@ -124,28 +112,13 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "label4";
             // 
-            // RBtnFuncionario
-            // 
-            this.RBtnFuncionario.AutoSize = true;
-            this.RBtnFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RBtnFuncionario.ForeColor = System.Drawing.Color.Transparent;
-            this.RBtnFuncionario.Location = new System.Drawing.Point(414, 157);
-            this.RBtnFuncionario.Name = "RBtnFuncionario";
-            this.RBtnFuncionario.Size = new System.Drawing.Size(129, 28);
-            this.RBtnFuncionario.TabIndex = 8;
-            this.RBtnFuncionario.TabStop = true;
-            this.RBtnFuncionario.Text = "Funcionário";
-            this.RBtnFuncionario.UseVisualStyleBackColor = true;
-            // 
             // TelaLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.RBtnFuncionario);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.RBtnGerente);
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.TxtSenha);
             this.Controls.Add(this.TxtEmail);
@@ -153,8 +126,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "TelaLogin";
-            this.Text = "TelaLogin";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "TelaLogin";            
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,9 +140,7 @@
         private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.TextBox TxtSenha;
         private System.Windows.Forms.Button BtnLogin;
-        private System.Windows.Forms.RadioButton RBtnGerente;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RadioButton RBtnFuncionario;
     }
 }
 
