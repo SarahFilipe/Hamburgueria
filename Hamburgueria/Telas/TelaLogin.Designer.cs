@@ -41,9 +41,9 @@
             // 
             this.label1.Font = new System.Drawing.Font("Showcard Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(365, 9);
+            this.label1.Location = new System.Drawing.Point(331, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(383, 118);
+            this.label1.Size = new System.Drawing.Size(448, 142);
             this.label1.TabIndex = 0;
             this.label1.Text = "COMO COMER SEU BURGÃO";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -53,9 +53,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(409, 206);
+            this.label2.Location = new System.Drawing.Point(399, 200);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 25);
+            this.label2.Size = new System.Drawing.Size(89, 31);
             this.label2.TabIndex = 1;
             this.label2.Text = "Email:";
             // 
@@ -64,16 +64,16 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(400, 260);
+            this.label3.Location = new System.Drawing.Point(388, 254);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 25);
+            this.label3.Size = new System.Drawing.Size(100, 31);
             this.label3.TabIndex = 2;
             this.label3.Text = "Senha:";
             // 
             // TxtEmail
             // 
             this.TxtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtEmail.Location = new System.Drawing.Point(486, 206);
+            this.TxtEmail.Location = new System.Drawing.Point(494, 206);
             this.TxtEmail.Multiline = true;
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(159, 25);
@@ -83,7 +83,7 @@
             // TxtSenha
             // 
             this.TxtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtSenha.Location = new System.Drawing.Point(486, 260);
+            this.TxtSenha.Location = new System.Drawing.Point(494, 260);
             this.TxtSenha.Multiline = true;
             this.TxtSenha.Name = "TxtSenha";
             this.TxtSenha.Size = new System.Drawing.Size(159, 25);
@@ -95,9 +95,9 @@
             this.BtnLogin.BackColor = System.Drawing.Color.White;
             this.BtnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLogin.ForeColor = System.Drawing.Color.Maroon;
-            this.BtnLogin.Location = new System.Drawing.Point(513, 338);
+            this.BtnLogin.Location = new System.Drawing.Point(508, 332);
             this.BtnLogin.Name = "BtnLogin";
-            this.BtnLogin.Size = new System.Drawing.Size(102, 36);
+            this.BtnLogin.Size = new System.Drawing.Size(121, 40);
             this.BtnLogin.TabIndex = 5;
             this.BtnLogin.Text = "Login";
             this.BtnLogin.UseVisualStyleBackColor = false;

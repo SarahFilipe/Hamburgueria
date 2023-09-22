@@ -49,6 +49,19 @@
     <Compile Include="Classes\Conexao.cs" />
     <Compile Include="Classes\Crypto.cs" />
     <Compile Include="Classes\Funcionario.cs" />
+    <Compile Include="Classes\Produto.cs" />
+    <Compile Include="Telas\TelaCadastroFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\TelaCadastroFuncionario.Designer.cs">
+      <DependentUpon>TelaCadastroFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\TelaCadastroProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\TelaCadastroProduto.Designer.cs">
+      <DependentUpon>TelaCadastroProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Telas\TelaLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +85,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Telas\TelaCadastroFuncionario.resx">
+      <DependentUpon>TelaCadastroFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\TelaCadastroProduto.resx">
+      <DependentUpon>TelaCadastroProduto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Telas\TelaLogin.resx">
       <DependentUpon>TelaLogin.cs</DependentUpon>
     </EmbeddedResource>

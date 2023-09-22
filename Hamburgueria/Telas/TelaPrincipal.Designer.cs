@@ -33,6 +33,8 @@
             this.TsiCadastro = new System.Windows.Forms.ToolStripMenuItem();
             this.TsiProdutos = new System.Windows.Forms.ToolStripMenuItem();
             this.TsiFuncionarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
+            this.LblUserLogado = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +46,7 @@
             this.label1.ForeColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1224, 115);
+            this.label1.Size = new System.Drawing.Size(1518, 152);
             this.label1.TabIndex = 1;
             this.label1.Text = "COMO COMER SEU \r\nBURGÃO";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -54,54 +56,90 @@
             this.menuStrip1.AutoSize = false;
             this.menuStrip1.BackColor = System.Drawing.Color.Maroon;
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TsiCadastro});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 579);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 639);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1224, 44);
+            this.menuStrip1.Size = new System.Drawing.Size(1518, 52);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // TsiCadastro
             // 
-            this.TsiCadastro.BackColor = System.Drawing.Color.White;
+            this.TsiCadastro.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.TsiCadastro.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TsiProdutos,
             this.TsiFuncionarios});
             this.TsiCadastro.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TsiCadastro.ForeColor = System.Drawing.Color.Maroon;
             this.TsiCadastro.Name = "TsiCadastro";
-            this.TsiCadastro.Size = new System.Drawing.Size(135, 40);
+            this.TsiCadastro.Size = new System.Drawing.Size(167, 48);
             this.TsiCadastro.Text = "Cadastro";
-            
             // 
             // TsiProdutos
             // 
-            this.TsiProdutos.BackColor = System.Drawing.Color.White;
+            this.TsiProdutos.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.TsiProdutos.ForeColor = System.Drawing.Color.Maroon;
             this.TsiProdutos.Name = "TsiProdutos";
-            this.TsiProdutos.Size = new System.Drawing.Size(244, 42);
+            this.TsiProdutos.Size = new System.Drawing.Size(303, 50);
             this.TsiProdutos.Text = "Produtos";
+            this.TsiProdutos.Click += new System.EventHandler(this.TsiProdutos_Click);
             // 
             // TsiFuncionarios
             // 
-            this.TsiFuncionarios.BackColor = System.Drawing.Color.White;
+            this.TsiFuncionarios.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.TsiFuncionarios.ForeColor = System.Drawing.Color.Maroon;
             this.TsiFuncionarios.Name = "TsiFuncionarios";
-            this.TsiFuncionarios.Size = new System.Drawing.Size(244, 42);
+            this.TsiFuncionarios.Size = new System.Drawing.Size(303, 50);
             this.TsiFuncionarios.Text = "Funcionários";
+            this.TsiFuncionarios.Click += new System.EventHandler(this.TsiFuncionarios_Click);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(1159, 650);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(214, 32);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Usuário logado:";
+            // 
+            // LblUserLogado
+            // 
+            this.LblUserLogado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblUserLogado.AutoSize = true;
+            this.LblUserLogado.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblUserLogado.ForeColor = System.Drawing.Color.Transparent;
+            this.LblUserLogado.Location = new System.Drawing.Point(1353, 650);
+            this.LblUserLogado.Name = "LblUserLogado";
+            this.LblUserLogado.Size = new System.Drawing.Size(72, 32);
+            this.LblUserLogado.TabIndex = 5;
+            this.LblUserLogado.Text = "Adm";
+            this.LblUserLogado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Maroon;
-            this.ClientSize = new System.Drawing.Size(1224, 623);
+            this.ClientSize = new System.Drawing.Size(1518, 691);
+            this.Controls.Add(this.LblUserLogado);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.Name = "TelaPrincipal";
             this.Text = "TelaPrincipal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.TelaPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -111,5 +149,7 @@
         private System.Windows.Forms.ToolStripMenuItem TsiCadastro;
         private System.Windows.Forms.ToolStripMenuItem TsiProdutos;
         private System.Windows.Forms.ToolStripMenuItem TsiFuncionarios;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LblUserLogado;
     }
 }
