@@ -20,9 +20,5 @@ namespace Hamburgueria.Telas
             _funcionarioLogado = funcionario;
         }
 
-        private void TelaPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,17 +24,21 @@ namespace Hamburgueria
         {
             Funcionario funcionarioLogado = Funcionario.RealizarLogin(TxtEmail.Text, TxtSenha.Text);
 
-            TelaPrincipal tlPrincipal = new TelaPrincipal(funcionarioLogado);
-            this.Hide();
-            tlPrincipal.ShowDialog();
-            this.Show();
-            TxtSenha.Clear();
+            if (funcionarioLogado.Senha == Crypto.Sha256("123"))
+            {
+
+                TelaPrincipal tlPrincipal = new TelaPrincipal(funcionarioLogado);
+                this.Hide();
+                tlPrincipal.ShowDialog();
+                this.Show();
+                TxtSenha.Clear();
+            }
 
         }
 
         private void TxtSenha_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Delete)
+            if (e.KeyChar == (char)Keys.Enter)
             {
                 BtnLogin.PerformClick();
             }

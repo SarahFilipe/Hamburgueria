@@ -13,7 +13,7 @@ namespace Hamburgueria.Classes
         #region Variáveis
 
         //String de Conexão                                 Informações CHUMBADAS - HardCode
-        private static string _strConexao = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=HAMBURGUERIA; Integrated Security=True";
+        private static string _strConexao = @"Data Source=VPR0687139W10-1;Initial Catalog=ComoComerSeuBurgao; Integrated Security=True";
 
 
         //Variáveis de uso (podem ou não serem usadas ao decorrer do projeto)

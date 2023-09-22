@@ -92,7 +92,7 @@ namespace Hamburgueria.Classes
 
                 }
 
-                if (funcionario.Senha == Crypto.Sha256(senha))
+                if (funcionario.Senha ==Crypto.Sha256(senha))
                 {
                     if (funcionario.Ativo)
                     {
@@ -117,6 +117,7 @@ namespace Hamburgueria.Classes
             {
                 throw;
             }
+          
         }
 
         #endregion
