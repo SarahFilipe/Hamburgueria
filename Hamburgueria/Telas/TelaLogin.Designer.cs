@@ -55,7 +55,7 @@
             this.label2.ForeColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(399, 200);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 31);
+            this.label2.Size = new System.Drawing.Size(71, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Email:";
             // 
@@ -66,7 +66,7 @@
             this.label3.ForeColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(388, 254);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 31);
+            this.label3.Size = new System.Drawing.Size(80, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "Senha:";
             // 
@@ -88,6 +88,7 @@
             this.TxtSenha.Name = "TxtSenha";
             this.TxtSenha.Size = new System.Drawing.Size(159, 25);
             this.TxtSenha.TabIndex = 4;
+            this.TxtSenha.TextChanged += new System.EventHandler(this.TxtSenha_TextChanged);
             this.TxtSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSenha_KeyPress);
             // 
             // BtnLogin

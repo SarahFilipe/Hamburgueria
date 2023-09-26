@@ -35,7 +35,9 @@
             this.TsiFuncionarios = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.LblUserLogado = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -74,7 +76,7 @@
             this.TsiCadastro.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TsiCadastro.ForeColor = System.Drawing.Color.Maroon;
             this.TsiCadastro.Name = "TsiCadastro";
-            this.TsiCadastro.Size = new System.Drawing.Size(167, 48);
+            this.TsiCadastro.Size = new System.Drawing.Size(135, 48);
             this.TsiCadastro.Text = "Cadastro";
             // 
             // TsiProdutos
@@ -82,7 +84,7 @@
             this.TsiProdutos.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.TsiProdutos.ForeColor = System.Drawing.Color.Maroon;
             this.TsiProdutos.Name = "TsiProdutos";
-            this.TsiProdutos.Size = new System.Drawing.Size(303, 50);
+            this.TsiProdutos.Size = new System.Drawing.Size(244, 42);
             this.TsiProdutos.Text = "Produtos";
             this.TsiProdutos.Click += new System.EventHandler(this.TsiProdutos_Click);
             // 
@@ -91,7 +93,7 @@
             this.TsiFuncionarios.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.TsiFuncionarios.ForeColor = System.Drawing.Color.Maroon;
             this.TsiFuncionarios.Name = "TsiFuncionarios";
-            this.TsiFuncionarios.Size = new System.Drawing.Size(303, 50);
+            this.TsiFuncionarios.Size = new System.Drawing.Size(244, 42);
             this.TsiFuncionarios.Text = "Funcionários";
             this.TsiFuncionarios.Click += new System.EventHandler(this.TsiFuncionarios_Click);
             // 
@@ -103,7 +105,7 @@
             this.label2.ForeColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(1159, 650);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(214, 32);
+            this.label2.Size = new System.Drawing.Size(164, 26);
             this.label2.TabIndex = 4;
             this.label2.Text = "Usuário logado:";
             // 
@@ -115,10 +117,19 @@
             this.LblUserLogado.ForeColor = System.Drawing.Color.Transparent;
             this.LblUserLogado.Location = new System.Drawing.Point(1353, 650);
             this.LblUserLogado.Name = "LblUserLogado";
-            this.LblUserLogado.Size = new System.Drawing.Size(72, 32);
+            this.LblUserLogado.Size = new System.Drawing.Size(58, 26);
             this.LblUserLogado.TabIndex = 5;
             this.LblUserLogado.Text = "Adm";
             this.LblUserLogado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1518, 152);
+            this.panel1.TabIndex = 7;
             // 
             // TelaPrincipal
             // 
@@ -127,9 +138,9 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(1518, 691);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.LblUserLogado);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.Name = "TelaPrincipal";
@@ -138,6 +149,7 @@
             this.Load += new System.EventHandler(this.TelaPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,5 +163,6 @@
         private System.Windows.Forms.ToolStripMenuItem TsiFuncionarios;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LblUserLogado;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -32,13 +32,15 @@
             // 
             // TelaCadastroFuncionario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1286, 414);
+            this.ClientSize = new System.Drawing.Size(1312, 601);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TelaCadastroFuncionario";
             this.Text = "TelaCadastroFuncionario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.TelaCadastroFuncionario_Load);
             this.ResumeLayout(false);
 
         }

@@ -34,8 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1286, 414);
+            this.ClientSize = new System.Drawing.Size(1267, 471);
             this.Name = "TelaCadastroProduto";
             this.Text = "TelaCadastroProduto";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

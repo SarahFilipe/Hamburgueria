@@ -52,5 +52,10 @@ namespace Hamburgueria
                 BtnLogin.PerformClick();
             }
         }
+
+        private void TxtSenha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

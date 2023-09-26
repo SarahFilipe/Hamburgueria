@@ -21,5 +21,22 @@ namespace Hamburgueria.Telas
             _funcionarioLogado = funcionario;
 
         }
+
+        private void TelaCadastroFuncionario_Load(object sender, EventArgs e)
+        {
+            if (WindowState != FormWindowState.Maximized)
+            {
+                if (WindowState != FormWindowState.Maximized)
+                {
+                    WindowState = FormWindowState.Maximized;
+                    MaximumSize = this.Size;
+
+                    if (WindowState == FormWindowState.Maximized)
+                    {
+
+                    }
+                }
+            }
+        }
     }
 }
