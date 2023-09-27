@@ -34,7 +34,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1312, 601);
+            this.ClientSize = new System.Drawing.Size(1502, 487);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TelaCadastroFuncionario";

@@ -20,6 +20,6 @@ namespace Hamburgueria.Telas
             _funcionarioLogado = funcionario;
         }
 
-      
+        
     }
 }
