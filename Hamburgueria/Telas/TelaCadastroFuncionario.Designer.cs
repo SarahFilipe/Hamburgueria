@@ -38,6 +38,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TelaCadastroFuncionario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaCadastroFuncionario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TelaCadastroFuncionario_Load);
