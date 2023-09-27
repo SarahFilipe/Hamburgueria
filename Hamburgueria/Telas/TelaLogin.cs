@@ -22,18 +22,28 @@ namespace Hamburgueria
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            Funcionario funcionarioLogado = Funcionario.RealizarLogin(TxtEmail.Text, TxtSenha.Text);
+           
 
-            if (funcionarioLogado.Senha == Crypto.Sha256("123"))
+            try
+            {
+                Funcionario funcionarioLogado = Funcionario.RealizarLogin(TxtEmail.Text, TxtSenha.Text);
+
+                if (funcionarioLogado.Senha == Crypto.Sha256("123"))
+                {
+
+                    TelaPrincipal tlPrincipal = new TelaPrincipal(funcionarioLogado);
+                    this.Hide();
+                    tlPrincipal.ShowDialog();
+                    this.Show();
+                    TxtSenha.Clear();
+                }
+            }
+            catch (Exception ex)
             {
 
-                TelaPrincipal tlPrincipal = new TelaPrincipal(funcionarioLogado);
-                this.Hide();
-                tlPrincipal.ShowDialog();
-                this.Show();
-                TxtSenha.Clear();
+                MessageBox.Show(ex.Message, "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+           
         }
 
         private void TxtSenha_KeyPress(object sender, KeyPressEventArgs e)

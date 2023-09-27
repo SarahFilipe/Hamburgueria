@@ -86,6 +86,7 @@
             this.TxtSenha.Location = new System.Drawing.Point(494, 260);
             this.TxtSenha.Multiline = true;
             this.TxtSenha.Name = "TxtSenha";
+            this.TxtSenha.PasswordChar = '*';
             this.TxtSenha.Size = new System.Drawing.Size(159, 25);
             this.TxtSenha.TabIndex = 4;
             this.TxtSenha.TextChanged += new System.EventHandler(this.TxtSenha_TextChanged);
@@ -118,7 +119,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Maroon;
-            this.ClientSize = new System.Drawing.Size(800, 451);
+            this.ClientSize = new System.Drawing.Size(797, 450);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.TxtSenha);
