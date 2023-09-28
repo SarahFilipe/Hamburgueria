@@ -31,17 +31,33 @@ namespace Hamburgueria.Telas
 
         public void TsiFuncionarios_Click(object sender, EventArgs e)
         {
-            TelaCadastroFuncionario tlcadastrofuncionario = new TelaCadastroFuncionario(_funcionarioLogado);
-            tlcadastrofuncionario.MdiParent = this;
-            tlcadastrofuncionario.Show();
+           
+            if (Application.OpenForms.OfType<TelaCadastroFuncionario>().Count() > 0)
+            {
+                Application.OpenForms.OfType<TelaCadastroFuncionario>().First().Focus();
+            }
+            else
+            {
+                TelaCadastroFuncionario tlcadastrofuncionario = new TelaCadastroFuncionario(_funcionarioLogado);
+                tlcadastrofuncionario.MdiParent = this;
+                tlcadastrofuncionario.Show();
+            }
         }
 
         public void TsiProdutos_Click(object sender, EventArgs e)
         {
-            TelaCadastroProduto tlcadastroproduto = new TelaCadastroProduto(_funcionarioLogado);
-                      
-            tlcadastroproduto.MdiParent = this;
-            tlcadastroproduto.Show();
+
+            if (Application.OpenForms.OfType<TelaCadastroFuncionario>().Count() > 0)
+            {
+                Application.OpenForms.OfType<TelaCadastroFuncionario>().First().Focus();
+            }
+            else
+            {
+                TelaCadastroProduto tlcadastroproduto = new TelaCadastroProduto(_funcionarioLogado);
+                tlcadastroproduto.MdiParent = this;
+                tlcadastroproduto.Show();
+            }
+           
         }
 
     

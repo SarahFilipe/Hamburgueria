@@ -18,7 +18,7 @@ namespace Hamburgueria.Classes
 
 
         //Variáveis de uso (podem ou não serem usadas ao decorrer do projeto)
-        public SqlConnection conexao = new SqlConnection(_strConexao1);
+        public SqlConnection conexao = new SqlConnection(_strConexao);
         public SqlCommand comando; // Armazenar a query
         public SqlDataAdapter da; // Adaptador para alguns componentes 
         public SqlDataReader dr; // Recebe os select's

@@ -9,9 +9,10 @@ namespace Hamburgueria.Classes
     internal class Produto
     {
         #region Propriedades 
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public string NomeProduto { get; set; }
+        public string Descricao { get; set; }
 
         public int PrecoPedido { get; set; }
 
@@ -28,10 +29,11 @@ namespace Hamburgueria.Classes
 
 
         }
-        public Produto(string id, string nomeProduto, int precoPedido, bool ativo)
+        public Produto(int id, string nomeProduto, string descricao, int precoPedido, bool ativo)
         {
             Id = id;
             NomeProduto = nomeProduto;
+            Descricao = descricao;
             PrecoPedido = precoPedido;
             Ativo = ativo;
         }
@@ -42,7 +44,10 @@ namespace Hamburgueria.Classes
 
         #region Metodo
 
+        public void Cadastrar()
+        {
 
+        }
 
         #endregion
     }

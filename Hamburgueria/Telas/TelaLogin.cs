@@ -18,6 +18,8 @@ namespace Hamburgueria
         public TelaLogin()
         {
             InitializeComponent();
+            TxtEmail.Text = "admin@gmail.com";
+            TxtSenha.Text = "123";
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)

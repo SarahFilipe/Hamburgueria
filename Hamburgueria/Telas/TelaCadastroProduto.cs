@@ -14,12 +14,17 @@ namespace Hamburgueria.Telas
     public partial class TelaCadastroProduto : Form
     {
         Funcionario _funcionarioLogado;
+      
         public TelaCadastroProduto(Funcionario funcionario)
         {
             InitializeComponent();
             _funcionarioLogado = funcionario;
+
         }
 
-        
+        private void BtnBuscarImagem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog(this);
+        }
     }
 }
