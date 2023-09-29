@@ -13,14 +13,13 @@ namespace Hamburgueria.Telas
 {
     public partial class TelaCadastroProduto : Form
     {
-        Funcionario _funcionarioLogado;
-        List<Produto> _produtos;
+        private Funcionario _funcionarioLogado;
+        private List<Produto> _produtos = new List<Produto>();
       
-        public TelaCadastroProduto(Funcionario funcionario, List<Produto> produtos)
+        public TelaCadastroProduto(Funcionario funcionario)
         {
             InitializeComponent();
-            _funcionarioLogado = funcionario;
-            _produtos = produtos;
+            _funcionarioLogado = funcionario;        
         }
 
 

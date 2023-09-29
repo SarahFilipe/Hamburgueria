@@ -20,35 +20,9 @@ namespace Hamburgueria.Telas
         {
             InitializeComponent();
             _funcionarioLogado = funcionario;
-
         }
 
-        private void BtnCadastrar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (_funcionarioLogado.Cargo == "Gerente")
-                {
-                    Funcionario funcionario = new Funcionario(0, TxtNome.Text, TxtEmail.Text, Crypto.Sha256("123"), DtpDataNascimento.Value, TxtSexo.Text, true, TxtCargo.Text);
-                    funcionario.CadastrarFuncionario(_funcionarios);
-                    MessageBox.Show($"Funcionário Cadastrado com sucesso!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.None);
-
-                }
-                else
-                {
-                    BtnCadastrar.Enabled = false;
-                    MessageBox.Show($"Você não possui permissão para tal ação!!!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-
-        private void ConfiguraDgvUsuarios()
+        private void ConfiguraDgvFuncionarios()
         {
             DgvFuncionarios.Columns.Add("Id", "Id");
             DgvFuncionarios.Columns.Add("Nome", "Nome");
@@ -73,7 +47,7 @@ namespace Hamburgueria.Telas
             DgvFuncionarios.Columns["Email"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             DgvFuncionarios.Columns["DtNascimento"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             DgvFuncionarios.Columns["Sexo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-             DgvFuncionarios.Columns["Ativo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            DgvFuncionarios.Columns["Ativo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             DgvFuncionarios.Columns["Cargo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
 
             //Configuarar tamanho em altura das linhas
@@ -85,10 +59,68 @@ namespace Hamburgueria.Telas
             DgvFuncionarios.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
         }
 
+        private void CarregarDgvFuncionarios(List<Funcionario> funcionarios = null)
+        {
+            DgvFuncionarios.Rows.Clear();
 
+            if (_funcionarioLogado.Cargo != "Gerente")
+            {
+                foreach (Funcionario funcionario in funcionarios)
+                {
+                    if (funcionario.Ativo == true)
+                    {
+                        DgvFuncionarios.Rows.Add(funcionario.Id, funcionario.Nome, funcionario.Email, funcionario.DtNascimento.ToString("dd/MM/yy"), funcionario.Sexo, funcionario.Ativo, funcionario.Cargo);
+                    }
+                }
+            }
+            else
+            {
+                foreach (Funcionario funcionario in funcionarios )
+                {
+                    DgvFuncionarios.Rows.Add(funcionario.Id, funcionario.Nome, funcionario.Email, funcionario.DtNascimento.ToString("dd/MM/yy"), funcionario.Sexo, funcionario.Ativo, funcionario.Cargo);
 
+                    if (!funcionario.Ativo)
+                    {
+                        DgvFuncionarios.Rows[DgvFuncionarios.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightCoral;
+                    }
 
+                }
+            }
+        }
 
+        private void BtnCadastrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_funcionarioLogado.Cargo == "Gerente")
+                {
+                    Funcionario funcionario = new Funcionario(0, TxtNome.Text, TxtEmail.Text, Crypto.Sha256("123"), DtpDataNascimento.Value, TxtSexo.Text, true, TxtCargo.Text);
+                    funcionario.CadastrarFuncionario(_funcionarios);
+                    
+                    CarregarDgvFuncionarios();
+                    
+                    
+
+                }
+                else
+                {
+                    BtnCadastrar.Enabled = false;
+                    MessageBox.Show($"Você não possui permissão para tal ação!!!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void TelaCadastroFuncionario_Load(object sender, EventArgs e)
+        {
+            ConfiguraDgvFuncionarios();
+            CarregarDgvFuncionarios();
+        }
     }
 }
 
