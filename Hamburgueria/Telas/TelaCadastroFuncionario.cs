@@ -13,7 +13,8 @@ namespace Hamburgueria.Telas
 {
     public partial class TelaCadastroFuncionario : Form
     {
-        Funcionario _funcionarioLogado;
+        private Funcionario _funcionarioLogado;
+        private List<Funcionario> _funcionarios = new List<Funcionario>();
 
         public TelaCadastroFuncionario(Funcionario funcionario)
         {
@@ -22,21 +23,72 @@ namespace Hamburgueria.Telas
 
         }
 
-        private void TelaCadastroFuncionario_Load(object sender, EventArgs e)
+        private void BtnCadastrar_Click(object sender, EventArgs e)
         {
-            if (WindowState != FormWindowState.Maximized)
+            try
             {
-                if (WindowState != FormWindowState.Maximized)
+                if (_funcionarioLogado.Cargo == "Gerente")
                 {
-                    WindowState = FormWindowState.Maximized;
-                    MaximumSize = this.Size;
+                    Funcionario funcionario = new Funcionario(0, TxtNome.Text, TxtEmail.Text, Crypto.Sha256("123"), DtpDataNascimento.Value, TxtSexo.Text, true, TxtCargo.Text);
+                    funcionario.CadastrarFuncionario(_funcionarios);
+                    MessageBox.Show($"Funcionário Cadastrado com sucesso!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.None);
 
-                    if (WindowState == FormWindowState.Maximized)
-                    {
-
-                    }
+                }
+                else
+                {
+                    BtnCadastrar.Enabled = false;
+                    MessageBox.Show($"Você não possui permissão para tal ação!!!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
+
+        private void ConfiguraDgvUsuarios()
+        {
+            DgvFuncionarios.Columns.Add("Id", "Id");
+            DgvFuncionarios.Columns.Add("Nome", "Nome");
+            DgvFuncionarios.Columns.Add("Email", "e-mail");
+            DgvFuncionarios.Columns.Add("DtNascimento", "Data Nascimento");
+            DgvFuncionarios.Columns.Add("Sexo", "Sexo");
+            DgvFuncionarios.Columns.Add("Ativo", "Ativo");
+            DgvFuncionarios.Columns.Add("Cargo", "Cargo");
+            //--------
+            //Configuração dos alinhamentos de cada coluna do DgvUsuarios
+
+            DgvFuncionarios.Columns["Id"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DgvFuncionarios.Columns["Nome"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            DgvFuncionarios.Columns["Email"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DgvFuncionarios.Columns["DtNascimento"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DgvFuncionarios.Columns["Sexo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DgvFuncionarios.Columns["Ativo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DgvFuncionarios.Columns["Cargo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            DgvFuncionarios.Columns["Id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            DgvFuncionarios.Columns["Nome"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            DgvFuncionarios.Columns["Email"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            DgvFuncionarios.Columns["DtNascimento"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            DgvFuncionarios.Columns["Sexo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+             DgvFuncionarios.Columns["Ativo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            DgvFuncionarios.Columns["Cargo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+
+            //Configuarar tamanho em altura das linhas
+            DgvFuncionarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            DgvFuncionarios.ColumnHeadersHeight = 35;
+            DgvFuncionarios.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            //Definindo uma cor para intercalar linhas
+            DgvFuncionarios.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+        }
+
+
+
+
+
     }
 }
+

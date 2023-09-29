@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Drawing.Imaging;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace Hamburgueria.Classes
@@ -92,7 +94,7 @@ namespace Hamburgueria.Classes
 
                 }
 
-                if (funcionario.Senha ==Crypto.Sha256(senha))
+                if (funcionario.Senha == Crypto.Sha256(senha))
                 {
                     if (funcionario.Ativo)
                     {
@@ -117,9 +119,34 @@ namespace Hamburgueria.Classes
             {
                 throw;
             }
-          
+
         }
 
-        #endregion
+        public void CadastrarFuncionario(List<Funcionario> funcionarios)
+        {
+            string querry = ($"Insert into Funcionarios values ('{Nome}','{Email}','{Senha}', '{DtNascimento}', '{Sexo}', 1, '{Cargo}');");
+            querry += "; SELECT SCOPE_IDENTITY()";
+            Conexao cn = new Conexao(querry);
+
+            try
+            {
+                cn.AbrirConexao();
+                this.Id = Convert.ToInt32(cn.comando.ExecuteScalar());
+
+                funcionarios.Add(this);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                cn.FecharConexao();
+            }
+        }
+
     }
+
+    #endregion
 }
+
