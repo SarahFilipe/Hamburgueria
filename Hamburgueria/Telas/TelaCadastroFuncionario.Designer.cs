@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.DgvFuncionarios = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.TxtCargo = new System.Windows.Forms.TextBox();
@@ -54,18 +53,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.CbbBuscar = new System.Windows.Forms.ComboBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.DgvFuncionarios)).BeginInit();
+            this.DgvFuncionarios = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.GbBusca.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvFuncionarios)).BeginInit();
             this.SuspendLayout();
-            // 
-            // DgvFuncionarios
-            // 
-            this.DgvFuncionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvFuncionarios.Location = new System.Drawing.Point(894, 78);
-            this.DgvFuncionarios.Name = "DgvFuncionarios";
-            this.DgvFuncionarios.Size = new System.Drawing.Size(607, 602);
-            this.DgvFuncionarios.TabIndex = 0;
             // 
             // label1
             // 
@@ -362,12 +354,24 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // DgvFuncionarios
+            // 
+            this.DgvFuncionarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DgvFuncionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvFuncionarios.Location = new System.Drawing.Point(894, 78);
+            this.DgvFuncionarios.Name = "DgvFuncionarios";
+            this.DgvFuncionarios.Size = new System.Drawing.Size(607, 602);
+            this.DgvFuncionarios.TabIndex = 20;
+            // 
             // TelaCadastroFuncionario
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(1502, 692);
+            this.Controls.Add(this.DgvFuncionarios);
             this.Controls.Add(this.GbBusca);
             this.Controls.Add(this.BtnNovo);
             this.Controls.Add(this.BtnCancelar);
@@ -375,7 +379,6 @@
             this.Controls.Add(this.BtnCadastrar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.DgvFuncionarios);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TelaCadastroFuncionario";
@@ -383,19 +386,17 @@
             this.Text = "TelaCadastroFuncionario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TelaCadastroFuncionario_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DgvFuncionarios)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.GbBusca.ResumeLayout(false);
             this.GbBusca.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvFuncionarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView DgvFuncionarios;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox CbAtivo;
@@ -420,5 +421,6 @@
         private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.TextBox TxtNome;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.DataGridView DgvFuncionarios;
     }
 }

@@ -20,6 +20,8 @@ namespace Hamburgueria.Telas
         {
             InitializeComponent();
             _funcionarioLogado = funcionario;
+
+
         }
 
         private void ConfiguraDgvFuncionarios()
@@ -42,9 +44,9 @@ namespace Hamburgueria.Telas
             DgvFuncionarios.Columns["Ativo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             DgvFuncionarios.Columns["Cargo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            DgvFuncionarios.Columns["Id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            DgvFuncionarios.Columns["Nome"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            DgvFuncionarios.Columns["Email"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            DgvFuncionarios.Columns["Id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            DgvFuncionarios.Columns["Nome"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DgvFuncionarios.Columns["Email"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             DgvFuncionarios.Columns["DtNascimento"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             DgvFuncionarios.Columns["Sexo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             DgvFuncionarios.Columns["Ativo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -65,7 +67,7 @@ namespace Hamburgueria.Telas
 
             if (_funcionarioLogado.Cargo != "Gerente")
             {
-                foreach (Funcionario funcionario in funcionarios)
+                foreach (Funcionario funcionario in funcionarios == null ? _funcionarios : funcionarios)
                 {
                     if (funcionario.Ativo == true)
                     {
@@ -75,7 +77,7 @@ namespace Hamburgueria.Telas
             }
             else
             {
-                foreach (Funcionario funcionario in funcionarios )
+                foreach (Funcionario funcionario in funcionarios == null ? _funcionarios : funcionarios)
                 {
                     DgvFuncionarios.Rows.Add(funcionario.Id, funcionario.Nome, funcionario.Email, funcionario.DtNascimento.ToString("dd/MM/yy"), funcionario.Sexo, funcionario.Ativo, funcionario.Cargo);
 
@@ -121,6 +123,8 @@ namespace Hamburgueria.Telas
             ConfiguraDgvFuncionarios();
             CarregarDgvFuncionarios();
         }
+
+        
     }
 }
 
