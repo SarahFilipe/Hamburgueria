@@ -43,16 +43,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.TxtTipoProduto = new System.Windows.Forms.TextBox();
             this.CbAtivo = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BtnCadastrar = new System.Windows.Forms.Button();
+            this.BtnAlterar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.GbInformações = new System.Windows.Forms.GroupBox();
             this.BtnBuscarImagem = new System.Windows.Forms.Button();
             this.PbImagem = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.TxtDescricao = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.GbBusca.SuspendLayout();
             this.GbInformações.SuspendLayout();
@@ -247,35 +247,36 @@
             this.CbAtivo.Text = "Disponível";
             this.CbAtivo.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // BtnCadastrar
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(519, 592);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 46);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Cadastrar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.BtnCadastrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnCadastrar.BackColor = System.Drawing.Color.White;
+            this.BtnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCadastrar.ForeColor = System.Drawing.Color.Black;
+            this.BtnCadastrar.Location = new System.Drawing.Point(519, 592);
+            this.BtnCadastrar.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnCadastrar.Name = "BtnCadastrar";
+            this.BtnCadastrar.Size = new System.Drawing.Size(154, 46);
+            this.BtnCadastrar.TabIndex = 11;
+            this.BtnCadastrar.Text = "Cadastrar";
+            this.BtnCadastrar.UseVisualStyleBackColor = false;
+            this.BtnCadastrar.Click += new System.EventHandler(this.BtnCadastrar_Click);
             // 
-            // button2
+            // BtnAlterar
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(230, 592);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(125, 46);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Alterar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.BtnAlterar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnAlterar.BackColor = System.Drawing.Color.White;
+            this.BtnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAlterar.ForeColor = System.Drawing.Color.Black;
+            this.BtnAlterar.Location = new System.Drawing.Point(230, 592);
+            this.BtnAlterar.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnAlterar.Name = "BtnAlterar";
+            this.BtnAlterar.Size = new System.Drawing.Size(125, 46);
+            this.BtnAlterar.TabIndex = 12;
+            this.BtnAlterar.Text = "Alterar";
+            this.BtnAlterar.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
@@ -292,36 +293,27 @@
             this.button3.Text = "Cancelar";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnNovo
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(374, 592);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(125, 46);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "Novo";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label7.Location = new System.Drawing.Point(473, 197);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(343, 200);
-            this.label7.TabIndex = 15;
+            this.btnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNovo.BackColor = System.Drawing.Color.White;
+            this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovo.ForeColor = System.Drawing.Color.Black;
+            this.btnNovo.Location = new System.Drawing.Point(374, 592);
+            this.btnNovo.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(125, 46);
+            this.btnNovo.TabIndex = 14;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = false;
             // 
             // GbInformações
             // 
+            this.GbInformações.Controls.Add(this.TxtDescricao);
             this.GbInformações.Controls.Add(this.BtnBuscarImagem);
             this.GbInformações.Controls.Add(this.PbImagem);
             this.GbInformações.Controls.Add(this.label8);
-            this.GbInformações.Controls.Add(this.label7);
             this.GbInformações.Controls.Add(this.label6);
             this.GbInformações.Controls.Add(this.TxtTipoProduto);
             this.GbInformações.Controls.Add(this.label4);
@@ -379,6 +371,16 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // TxtDescricao
+            // 
+            this.TxtDescricao.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.TxtDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtDescricao.Location = new System.Drawing.Point(473, 190);
+            this.TxtDescricao.Multiline = true;
+            this.TxtDescricao.Name = "TxtDescricao";
+            this.TxtDescricao.Size = new System.Drawing.Size(343, 189);
+            this.TxtDescricao.TabIndex = 18;
+            // 
             // TelaCadastroProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,10 +388,10 @@
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(1502, 692);
             this.Controls.Add(this.GbInformações);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnAlterar);
+            this.Controls.Add(this.BtnCadastrar);
             this.Controls.Add(this.GbBusca);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
@@ -425,15 +427,15 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TxtTipoProduto;
         private System.Windows.Forms.CheckBox CbAtivo;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BtnCadastrar;
+        private System.Windows.Forms.Button BtnAlterar;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.GroupBox GbInformações;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox PbImagem;
         private System.Windows.Forms.Button BtnBuscarImagem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TextBox TxtDescricao;
     }
 }

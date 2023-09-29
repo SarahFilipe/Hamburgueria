@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,6 +28,9 @@ namespace Hamburgueria.Telas
                 TsiCadastro.Visible = false;
             }
             LblUserLogado.Text = _funcionarioLogado.Nome;
+            LblHorario.Text = DateTime.Now.ToString();
+            TmrRelogio.Interval = 1000;
+            TmrRelogio.Enabled = true;
         }
 
         public void TsiFuncionarios_Click(object sender, EventArgs e)
@@ -60,6 +64,9 @@ namespace Hamburgueria.Telas
            
         }
 
-    
+        private void TmrRelogio_Tick(object sender, EventArgs e)
+        {
+            LblHorario.Text = DateTime.Now.ToString();
+        }
     }
 }
