@@ -15,6 +15,7 @@ namespace Hamburgueria.Telas
     {
         private Funcionario _funcionarioLogado;
         private List<Funcionario> _funcionarios = new List<Funcionario>();
+        private Funcionario _FuncionarioSelecionado;
 
         public TelaCadastroFuncionario(Funcionario funcionario)
         {
@@ -23,8 +24,26 @@ namespace Hamburgueria.Telas
 
 
         }
+        private void TelaCadastroFuncionario_Load(object sender, EventArgs e)
+        {
 
-        private void ConfiguraDgvFuncionarios()
+            {
+
+                try
+                {
+                    ConfiguraDgvFuncionarios();
+                    CarregarDgvFuncionarios();
+                   
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+            private void ConfiguraDgvFuncionarios()
         {
             DgvFuncionarios.Columns.Add("Id", "Id");
             DgvFuncionarios.Columns.Add("Nome", "Nome");
@@ -63,21 +82,10 @@ namespace Hamburgueria.Telas
 
         private void CarregarDgvFuncionarios(List<Funcionario> funcionarios = null)
         {
-            DgvFuncionarios.Rows.Clear();
-
-            if (_funcionarioLogado.Cargo != "Gerente")
-            {
-                foreach (Funcionario funcionario in funcionarios == null ? _funcionarios : funcionarios)
-                {
-                    if (funcionario.Ativo == true)
-                    {
-                        DgvFuncionarios.Rows.Add(funcionario.Id, funcionario.Nome, funcionario.Email, funcionario.DtNascimento.ToString("dd/MM/yy"), funcionario.Sexo, funcionario.Ativo, funcionario.Cargo);
-                    }
-                }
-            }
-            else
-            {
-                foreach (Funcionario funcionario in funcionarios == null ? _funcionarios : funcionarios)
+           
+               
+            
+              foreach (Funcionario funcionario in funcionarios == null ? _funcionarios : funcionarios)
                 {
                     DgvFuncionarios.Rows.Add(funcionario.Id, funcionario.Nome, funcionario.Email, funcionario.DtNascimento.ToString("dd/MM/yy"), funcionario.Sexo, funcionario.Ativo, funcionario.Cargo);
 
@@ -87,8 +95,26 @@ namespace Hamburgueria.Telas
                     }
 
                 }
-            }
+            
         }
+
+        private void LimparCampos()
+        {
+            LblId.Text = string.Empty;
+            TxtEmail.Clear();
+            TxtSexo.Clear();
+            TxtCargo.Clear();
+            TxtNome.Clear();
+            DtpDataNascimento.Value = DateTime.Now;
+            CbAtivo.Checked = true;
+            CbAtivo.Enabled = false;
+            DgvFuncionarios.ClearSelection();
+            BtnCadastrar.Enabled = true;
+            BtnAlterar.Enabled = false;
+            CbbBuscar.SelectedIndex = 0;
+            BtnAlterar.BackColor = Color.Silver;
+        }
+
 
         private void BtnCadastrar_Click(object sender, EventArgs e)
         {
@@ -98,10 +124,10 @@ namespace Hamburgueria.Telas
                 {
                     Funcionario funcionario = new Funcionario(0, TxtNome.Text, TxtEmail.Text, Crypto.Sha256("123"), DtpDataNascimento.Value, TxtSexo.Text, true, TxtCargo.Text);
                     funcionario.CadastrarFuncionario(_funcionarios);
-                    
+
                     CarregarDgvFuncionarios();
-                    
-                    
+
+
 
                 }
                 else
@@ -118,13 +144,42 @@ namespace Hamburgueria.Telas
 
         }
 
-        private void TelaCadastroFuncionario_Load(object sender, EventArgs e)
+        
+
+        private void BtnAlterar_Click(object sender, EventArgs e)
         {
-            ConfiguraDgvFuncionarios();
-            CarregarDgvFuncionarios();
+            {
+                try
+                {
+                    _FuncionarioSelecionado.Nome = TxtNome.Text;
+                    _FuncionarioSelecionado.Email = TxtEmail.Text;
+                    _FuncionarioSelecionado.DtNascimento = DtpDataNascimento.Value;
+                    _FuncionarioSelecionado.Sexo = TxtSexo.Text;
+                    _FuncionarioSelecionado.Cargo = TxtCargo.Text;
+
+
+                    _FuncionarioSelecionado.Alterar(_funcionarios);
+                    CarregarDgvFuncionarios();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
         }
 
-        
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void BtnNovo_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
+        }
     }
+
 }
 

@@ -249,6 +249,7 @@
             this.BtnNovo.TabIndex = 18;
             this.BtnNovo.Text = "Novo";
             this.BtnNovo.UseVisualStyleBackColor = false;
+            this.BtnNovo.Click += new System.EventHandler(this.BtnNovo_Click);
             // 
             // BtnCancelar
             // 
@@ -264,6 +265,7 @@
             this.BtnCancelar.TabIndex = 17;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // BtnAlterar
             // 
@@ -279,6 +281,7 @@
             this.BtnAlterar.TabIndex = 16;
             this.BtnAlterar.Text = "Alterar";
             this.BtnAlterar.UseVisualStyleBackColor = false;
+            this.BtnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
             // 
             // BtnCadastrar
             // 
@@ -362,6 +365,7 @@
             this.DgvFuncionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvFuncionarios.Location = new System.Drawing.Point(894, 78);
             this.DgvFuncionarios.Name = "DgvFuncionarios";
+            this.DgvFuncionarios.RowHeadersVisible = false;
             this.DgvFuncionarios.Size = new System.Drawing.Size(607, 602);
             this.DgvFuncionarios.TabIndex = 20;
             // 

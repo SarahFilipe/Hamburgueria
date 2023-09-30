@@ -145,6 +145,45 @@ namespace Hamburgueria.Classes
             }
         }
 
+        public void Alterar(List<Funcionario> funcionarios)
+        {
+
+            string query = ($"update Funcionario set Nome = '{Nome}', Email = '{Email}', Senha = '{Senha}', DataNascimento = '{DtNascimento}', Sexo = '{Sexo}', 1 , Cargo = {Cargo} where Id = {Id} ");
+            Conexao cn = new Conexao(query);
+
+            try
+            {
+                cn.AbrirConexao();
+                cn.comando.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+        public void Deletar(List<Funcionario> funcionarios)
+        {
+
+
+            string query = ($"update Funcionario set Ativo = '{0}' where Id = {Id}");
+            Conexao cn = new Conexao(query);
+
+            try
+            {
+                cn.AbrirConexao();
+                cn.comando.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 
     #endregion
