@@ -50,6 +50,7 @@
     <Compile Include="Classes\Crypto.cs" />
     <Compile Include="Classes\Funcionario.cs" />
     <Compile Include="Classes\Produto.cs" />
+    <Compile Include="Classes\TipoProduto.cs" />
     <Compile Include="Telas\TelaCadastroFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>

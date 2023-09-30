@@ -15,13 +15,31 @@ namespace Hamburgueria.Telas
     {
         private Funcionario _funcionarioLogado;
         private List<Produto> _produtos = new List<Produto>();
-      
+
         public TelaCadastroProduto(Funcionario funcionario)
         {
             InitializeComponent();
-            _funcionarioLogado = funcionario;        
+            _funcionarioLogado = funcionario;
         }
 
+        private void TelaCadastroProduto_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                ConfiguraDgvProdutos();
+                CbbTipo.DataSource = TipoProduto.BuscarTudo();
+                CbbTipo.DisplayMember = "Descricao";
+                CbbTipo.ValueMember = "Id";
+                CarregaDgvProdutos();
+                LimparCampos();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+        }
 
         private void BtnBuscarImagem_Click(object sender, EventArgs e)
         {
@@ -34,7 +52,7 @@ namespace Hamburgueria.Telas
             {
                 if (_funcionarioLogado.Cargo == "Gerente")
                 {
-                    Produto produto = new Produto(0, TxtNome.Text, TxtDescricao.Text, Convert.ToDouble(TxtPreço.Text), true);
+                    Produto produto = new Produto(0, (int)CbbTipo.SelectedValue, TxtNome.Text, TxtDescricao.Text, Convert.ToDouble(TxtPreço.Text), true);
                     produto.Cadastrar(_produtos);
                 }
                 else
@@ -46,9 +64,77 @@ namespace Hamburgueria.Telas
             catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
+
+        }
+
+        private void ConfiguraDgvProdutos()
+        {
+            DgvProdutos.Columns.Add("Id", "Id");
+            DgvProdutos.Columns.Add("NomeProduto", "Nome");
+            DgvProdutos.Columns.Add("TipoProduto", "Tipo");
+            DgvProdutos.Columns.Add("PrecoProduto", "Preço");
+            DgvProdutos.Columns.Add("Ativo", "Ativo");
+            //--------
+            //Configuração dos alinhamentos de cada coluna do DgvUsuarios
+
+            DgvProdutos.Columns["Id"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DgvProdutos.Columns["NomeProduto"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            DgvProdutos.Columns["TipoProduto"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DgvProdutos.Columns["PrecoProduto"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DgvProdutos.Columns["Ativo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            DgvProdutos.Columns["Id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            DgvProdutos.Columns["NomeProduto"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            DgvProdutos.Columns["TipoProduto"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            DgvProdutos.Columns["PrecoProduto"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DgvProdutos.Columns["Ativo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+
+            //Configuarar tamanho em altura das linhas
+            DgvProdutos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            DgvProdutos.ColumnHeadersHeight = 35;
+            DgvProdutos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            //Definindo uma cor para intercalar linhas
+            DgvProdutos.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+        }
+
+        private void CarregaDgvProdutos(List<Produto> produtos = null)
+        {
+            DgvProdutos.Rows.Clear();
+
+
+            foreach (Produto produto in produtos == null ? _produtos : produtos)
+            {
+                DgvProdutos.Rows.Add(produto.Id, produto.NomeProduto, produto.CodTipoProduto, produto.ValorProduto, produto.Ativo);
+
+                if (!produto.Ativo)
+                {
+                    DgvProdutos.Rows[DgvProdutos.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightCoral;
+                }
+            }
+        }
+
+        private void LimparCampos()
+        {
+            LblId.Text = string.Empty;            
+            TxtNome.Clear();                        
+            CbAtivo.Checked = true;
+            CbAtivo.Enabled = false;
+            DgvProdutos.ClearSelection();
+            BtnCadastrar.Enabled = true;
+            BtnAlterar.Enabled = false;            
+            CbbBuscar.SelectedIndex = 0;
+            BtnAlterar.BackColor = Color.Silver;
             
+           
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
         }
     }
 }

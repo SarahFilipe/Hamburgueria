@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DgvProdutos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.GbBusca = new System.Windows.Forms.GroupBox();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
@@ -41,35 +41,35 @@
             this.label5 = new System.Windows.Forms.Label();
             this.TxtPreço = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.TxtTipoProduto = new System.Windows.Forms.TextBox();
             this.CbAtivo = new System.Windows.Forms.CheckBox();
             this.BtnCadastrar = new System.Windows.Forms.Button();
             this.BtnAlterar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.GbInformações = new System.Windows.Forms.GroupBox();
+            this.CbbTipo = new System.Windows.Forms.ComboBox();
+            this.TxtDescricao = new System.Windows.Forms.TextBox();
             this.BtnBuscarImagem = new System.Windows.Forms.Button();
             this.PbImagem = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.TxtDescricao = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvProdutos)).BeginInit();
             this.GbBusca.SuspendLayout();
             this.GbInformações.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbImagem)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // DgvProdutos
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.DgvProdutos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(894, 78);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(607, 602);
-            this.dataGridView1.TabIndex = 0;
+            this.DgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvProdutos.Location = new System.Drawing.Point(894, 78);
+            this.DgvProdutos.Name = "DgvProdutos";
+            this.DgvProdutos.RowHeadersWidth = 51;
+            this.DgvProdutos.Size = new System.Drawing.Size(607, 602);
+            this.DgvProdutos.TabIndex = 0;
             // 
             // label1
             // 
@@ -123,6 +123,7 @@
             // CbbBuscar
             // 
             this.CbbBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CbbBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbbBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbbBuscar.FormattingEnabled = true;
             this.CbbBuscar.Items.AddRange(new object[] {
@@ -224,15 +225,6 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "Tipo:";
             // 
-            // TxtTipoProduto
-            // 
-            this.TxtTipoProduto.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.TxtTipoProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTipoProduto.Location = new System.Drawing.Point(123, 254);
-            this.TxtTipoProduto.Name = "TxtTipoProduto";
-            this.TxtTipoProduto.Size = new System.Drawing.Size(165, 31);
-            this.TxtTipoProduto.TabIndex = 9;
-            // 
             // CbAtivo
             // 
             this.CbAtivo.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -307,15 +299,16 @@
             this.btnNovo.TabIndex = 14;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // GbInformações
             // 
+            this.GbInformações.Controls.Add(this.CbbTipo);
             this.GbInformações.Controls.Add(this.TxtDescricao);
             this.GbInformações.Controls.Add(this.BtnBuscarImagem);
             this.GbInformações.Controls.Add(this.PbImagem);
             this.GbInformações.Controls.Add(this.label8);
             this.GbInformações.Controls.Add(this.label6);
-            this.GbInformações.Controls.Add(this.TxtTipoProduto);
             this.GbInformações.Controls.Add(this.label4);
             this.GbInformações.Controls.Add(this.TxtNome);
             this.GbInformações.Controls.Add(this.CbAtivo);
@@ -331,6 +324,33 @@
             this.GbInformações.TabIndex = 16;
             this.GbInformações.TabStop = false;
             this.GbInformações.Text = "Informações";
+            // 
+            // CbbTipo
+            // 
+            this.CbbTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CbbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbbTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbbTipo.FormattingEnabled = true;
+            this.CbbTipo.Items.AddRange(new object[] {
+            "Lanche",
+            "Combo",
+            "Bebida",
+            "Batata",
+            "Sobremesa"});
+            this.CbbTipo.Location = new System.Drawing.Point(123, 261);
+            this.CbbTipo.Name = "CbbTipo";
+            this.CbbTipo.Size = new System.Drawing.Size(151, 24);
+            this.CbbTipo.TabIndex = 19;
+            // 
+            // TxtDescricao
+            // 
+            this.TxtDescricao.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.TxtDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtDescricao.Location = new System.Drawing.Point(473, 190);
+            this.TxtDescricao.Multiline = true;
+            this.TxtDescricao.Name = "TxtDescricao";
+            this.TxtDescricao.Size = new System.Drawing.Size(343, 189);
+            this.TxtDescricao.TabIndex = 18;
             // 
             // BtnBuscarImagem
             // 
@@ -371,16 +391,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // TxtDescricao
-            // 
-            this.TxtDescricao.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.TxtDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtDescricao.Location = new System.Drawing.Point(473, 190);
-            this.TxtDescricao.Multiline = true;
-            this.TxtDescricao.Name = "TxtDescricao";
-            this.TxtDescricao.Size = new System.Drawing.Size(343, 189);
-            this.TxtDescricao.TabIndex = 18;
-            // 
             // TelaCadastroProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,12 +404,13 @@
             this.Controls.Add(this.BtnCadastrar);
             this.Controls.Add(this.GbBusca);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DgvProdutos);
             this.Name = "TelaCadastroProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaCadastroProduto";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.TelaCadastroProduto_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvProdutos)).EndInit();
             this.GbBusca.ResumeLayout(false);
             this.GbBusca.PerformLayout();
             this.GbInformações.ResumeLayout(false);
@@ -412,7 +423,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DgvProdutos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox GbBusca;
         private System.Windows.Forms.ComboBox CbbBuscar;
@@ -425,7 +436,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TxtPreço;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox TxtTipoProduto;
         private System.Windows.Forms.CheckBox CbAtivo;
         private System.Windows.Forms.Button BtnCadastrar;
         private System.Windows.Forms.Button BtnAlterar;
@@ -437,5 +447,6 @@
         private System.Windows.Forms.Button BtnBuscarImagem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TextBox TxtDescricao;
+        private System.Windows.Forms.ComboBox CbbTipo;
     }
 }
