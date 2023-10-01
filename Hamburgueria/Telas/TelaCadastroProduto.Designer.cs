@@ -78,7 +78,7 @@
             this.label1.ForeColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(12, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(235, 50);
+            this.label1.Size = new System.Drawing.Size(292, 62);
             this.label1.TabIndex = 1;
             this.label1.Text = "Produtos";
             // 
@@ -107,6 +107,7 @@
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Size = new System.Drawing.Size(271, 24);
             this.TxtBuscar.TabIndex = 3;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // label2
             // 
@@ -116,7 +117,7 @@
             this.label2.Location = new System.Drawing.Point(38, 27);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 20);
+            this.label2.Size = new System.Drawing.Size(138, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Procurar por:";
             // 
@@ -134,7 +135,7 @@
             "Sobremesas"});
             this.CbbBuscar.Location = new System.Drawing.Point(156, 27);
             this.CbbBuscar.Name = "CbbBuscar";
-            this.CbbBuscar.Size = new System.Drawing.Size(151, 24);
+            this.CbbBuscar.Size = new System.Drawing.Size(151, 28);
             this.CbbBuscar.TabIndex = 0;
             // 
             // LblId
@@ -159,7 +160,7 @@
             this.label3.Location = new System.Drawing.Point(15, 56);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 31);
+            this.label3.Size = new System.Drawing.Size(61, 39);
             this.label3.TabIndex = 4;
             this.label3.Text = "ID:";
             // 
@@ -173,7 +174,7 @@
             this.label4.Location = new System.Drawing.Point(24, 190);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 31);
+            this.label4.Size = new System.Drawing.Size(117, 39);
             this.label4.TabIndex = 5;
             this.label4.Text = "Nome:";
             // 
@@ -197,7 +198,7 @@
             this.label5.Location = new System.Drawing.Point(127, 348);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 31);
+            this.label5.Size = new System.Drawing.Size(115, 39);
             this.label5.TabIndex = 6;
             this.label5.Text = "Preço:";
             // 
@@ -221,7 +222,7 @@
             this.label6.Location = new System.Drawing.Point(43, 254);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 31);
+            this.label6.Size = new System.Drawing.Size(93, 39);
             this.label6.TabIndex = 8;
             this.label6.Text = "Tipo:";
             // 
@@ -234,7 +235,7 @@
             this.CbAtivo.Location = new System.Drawing.Point(310, 53);
             this.CbAtivo.Margin = new System.Windows.Forms.Padding(2);
             this.CbAtivo.Name = "CbAtivo";
-            this.CbAtivo.Size = new System.Drawing.Size(159, 35);
+            this.CbAtivo.Size = new System.Drawing.Size(198, 43);
             this.CbAtivo.TabIndex = 10;
             this.CbAtivo.Text = "Disponível";
             this.CbAtivo.UseVisualStyleBackColor = true;
@@ -339,7 +340,7 @@
             "Sobremesa"});
             this.CbbTipo.Location = new System.Drawing.Point(123, 261);
             this.CbbTipo.Name = "CbbTipo";
-            this.CbbTipo.Size = new System.Drawing.Size(151, 24);
+            this.CbbTipo.Size = new System.Drawing.Size(151, 28);
             this.CbbTipo.TabIndex = 19;
             // 
             // TxtDescricao
@@ -383,7 +384,7 @@
             this.label8.ForeColor = System.Drawing.Color.Transparent;
             this.label8.Location = new System.Drawing.Point(468, 158);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(124, 25);
+            this.label8.Size = new System.Drawing.Size(154, 31);
             this.label8.TabIndex = 16;
             this.label8.Text = "Descrição:";
             // 

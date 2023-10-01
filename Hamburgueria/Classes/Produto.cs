@@ -111,34 +111,7 @@ namespace Hamburgueria.Classes
 
             }
         }
-        public static List<Produto> Buscar(List<Produto> produtos, int indexCbbBuscar, string texto)
-        {
-            switch (indexCbbBuscar)
-            {
-                case 0:
-                    return produtos.Where(a => a.TipoProduto.Descricao.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
-
-                case 1:
-                    return produtos.Where(a => a.TipoProduto.Descricao.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
-
-                case 2:
-                    return produtos.Where(a => a.TipoProduto.Descricao.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
-
-                case 3:
-                    return produtos.Where(a => a.TipoProduto.Descricao.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
-
-                case 4:
-                    return produtos.Where(a => a.TipoProduto.Descricao.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
-
-                case 5:
-                    return produtos.Where(a => a.TipoProduto.Descricao.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
-
-                default:
-                    return produtos;
-
-            }
-
-        }
+        
         #endregion
     }
 }

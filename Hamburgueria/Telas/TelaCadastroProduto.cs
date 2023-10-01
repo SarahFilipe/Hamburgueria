@@ -15,6 +15,7 @@ namespace Hamburgueria.Telas
     {
         private Funcionario _funcionarioLogado;
         private List<Produto> _produtos = new List<Produto>();
+        private List<TipoProduto> _tiposprodutos = new List<TipoProduto>();
 
         public TelaCadastroProduto(Funcionario funcionario)
         {
@@ -30,6 +31,9 @@ namespace Hamburgueria.Telas
                 CbbTipo.DataSource = TipoProduto.BuscarTudo();
                 CbbTipo.DisplayMember = "Descricao";
                 CbbTipo.ValueMember = "Id";
+                CbbBuscar.DataSource = TipoProduto.BuscarTudo();
+                CbbBuscar.DisplayMember = "Descricao";
+                CbbBuscar.ValueMember = "Id";
                 CarregaDgvProdutos();
                 LimparCampos();
             }
@@ -126,15 +130,19 @@ namespace Hamburgueria.Telas
             DgvProdutos.ClearSelection();
             BtnCadastrar.Enabled = true;
             BtnAlterar.Enabled = false;            
-            CbbBuscar.SelectedIndex = 0;
+            CbbBuscar.SelectedValue = 1;
             BtnAlterar.BackColor = Color.Silver;
             
-           
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
             LimparCampos();
+        }
+
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            List<TipoProduto> ListaAlunosFiltrada = TipoProduto.Buscar(_tiposprodutos, (int)CbbBuscar.SelectedValue, TxtBuscar.Text);
         }
     }
 }

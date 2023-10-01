@@ -67,13 +67,10 @@ namespace Hamburgueria.Classes
         }
 
 
-        public static List<TipoProduto> Buscar(List<TipoProduto> tiposProdutos, int indexCbbTipo, string texto)
+        public static List<TipoProduto> Buscar(List<TipoProduto> tiposProdutos, int ValorCbbTipo, string texto)
         {
-            switch (indexCbbTipo)
+            switch (ValorCbbTipo)
             {
-                case 0:
-                    return tiposProdutos.Where(a => a.Descricao.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
-
                 case 1:
                     return tiposProdutos.Where(a => a.Descricao.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
 
@@ -87,6 +84,9 @@ namespace Hamburgueria.Classes
                     return tiposProdutos.Where(a => a.Descricao.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
 
                 case 5:
+                    return tiposProdutos.Where(a => a.Descricao.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
+
+                case 6:
                     return tiposProdutos.Where(a => a.Descricao.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
 
                 default:
