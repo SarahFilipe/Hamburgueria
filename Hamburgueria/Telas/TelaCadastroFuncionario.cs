@@ -20,7 +20,20 @@ namespace Hamburgueria.Telas
         public TelaCadastroFuncionario(Funcionario funcionario)
         {
             InitializeComponent();
-            _funcionarioLogado = funcionario;
+
+            try
+            {
+
+                _funcionarios = Funcionario.BuscarFuncionario().ConvertAll(u => (Funcionario)u);
+                _funcionarioLogado = funcionario;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            ;
 
 
         }
@@ -33,7 +46,7 @@ namespace Hamburgueria.Telas
                 {
                     ConfiguraDgvFuncionarios();
                     CarregarDgvFuncionarios();
-                   
+
                 }
                 catch (Exception ex)
                 {
@@ -43,7 +56,7 @@ namespace Hamburgueria.Telas
             }
         }
 
-            private void ConfiguraDgvFuncionarios()
+        private void ConfiguraDgvFuncionarios()
         {
             DgvFuncionarios.Columns.Add("Id", "Id");
             DgvFuncionarios.Columns.Add("Nome", "Nome");
@@ -69,7 +82,7 @@ namespace Hamburgueria.Telas
             DgvFuncionarios.Columns["DtNascimento"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             DgvFuncionarios.Columns["Sexo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             DgvFuncionarios.Columns["Ativo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            DgvFuncionarios.Columns["Cargo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            DgvFuncionarios.Columns["Cargo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             //Configuarar tamanho em altura das linhas
             DgvFuncionarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -82,20 +95,20 @@ namespace Hamburgueria.Telas
 
         private void CarregarDgvFuncionarios(List<Funcionario> funcionarios = null)
         {
-           
-               
-            
-              foreach (Funcionario funcionario in funcionarios == null ? _funcionarios : funcionarios)
+
+
+
+            foreach (Funcionario funcionario in funcionarios == null ? _funcionarios : funcionarios)
+            {
+                DgvFuncionarios.Rows.Add(funcionario.Id, funcionario.Nome, funcionario.Email, funcionario.DtNascimento.ToString("dd/MM/yy"), funcionario.Sexo, funcionario.Ativo, funcionario.Cargo);
+
+                if (!funcionario.Ativo)
                 {
-                    DgvFuncionarios.Rows.Add(funcionario.Id, funcionario.Nome, funcionario.Email, funcionario.DtNascimento.ToString("dd/MM/yy"), funcionario.Sexo, funcionario.Ativo, funcionario.Cargo);
-
-                    if (!funcionario.Ativo)
-                    {
-                        DgvFuncionarios.Rows[DgvFuncionarios.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightCoral;
-                    }
-
+                    DgvFuncionarios.Rows[DgvFuncionarios.Rows.Count - 1].DefaultCellStyle.BackColor = Color.LightCoral;
                 }
-            
+
+            }
+
         }
 
         private void LimparCampos()
@@ -144,7 +157,7 @@ namespace Hamburgueria.Telas
 
         }
 
-        
+
 
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
@@ -178,6 +191,12 @@ namespace Hamburgueria.Telas
         private void BtnNovo_Click(object sender, EventArgs e)
         {
             LimparCampos();
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            List<Funcionario> ListaFuncionarios = Funcionario.Buscar(_funcionarios, CbbBuscar.SelectedIndex, TxtBuscar.Text);
+            CarregarDgvFuncionarios(ListaFuncionarios);
         }
     }
 

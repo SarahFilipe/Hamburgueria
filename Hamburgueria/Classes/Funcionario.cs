@@ -184,8 +184,67 @@ namespace Hamburgueria.Classes
             }
         }
 
-    }
+        public static List<Funcionario> Buscar(List<Funcionario> funcionarios, int indexCbbBuscar, string texto)
+        {
+            switch (indexCbbBuscar)
+            {
+                case 0:
+                    return funcionarios.Where(f => f.Nome.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
 
-    #endregion
+                case 1:
+                    return funcionarios.Where(f => f.Email.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
+
+                case 2:
+                    return funcionarios.Where(f => f.Sexo.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
+
+                case 3:
+                    return funcionarios.Where(f => f.Cargo.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
+
+                default:
+                    return funcionarios;
+
+            }
+        }
+
+        public static List<Funcionario> BuscarFuncionario()
+        {
+            string query = "select * from Funcionarios";
+            Conexao cn = new Conexao(query);
+
+            List<Funcionario> funcionarios = new List<Funcionario>();
+
+            try
+            {
+                cn.AbrirConexao();
+                cn.dr = cn.comando.ExecuteReader();
+
+                while (cn.dr.Read())
+                {
+                    funcionarios.Add(new Funcionario()
+                    {
+                        Id = Convert.ToInt32(cn.dr[0]),
+                        Nome = Convert.ToString(cn.dr[1]),
+                        Email = Convert.ToString(cn.dr[2]),
+                         Senha = Convert.ToString(cn.dr[3]),
+                        DtNascimento = Convert.ToDateTime(cn.dr[4]),
+                        Sexo = Convert.ToString(cn.dr[5]),
+                        Ativo = Convert.ToBoolean(cn.dr[6]),
+                        Cargo = Convert.ToString(cn.dr[7]),
+                    });
+                }
+                return funcionarios;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+    }
 }
+
+#endregion
+
 
