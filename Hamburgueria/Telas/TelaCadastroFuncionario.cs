@@ -15,7 +15,7 @@ namespace Hamburgueria.Telas
     {
         private Funcionario _funcionarioLogado;
         private List<Funcionario> _funcionarios = new List<Funcionario>();
-        private Funcionario _FuncionarioSelecionado;
+        private Funcionario _funcionarioSelecionado;
 
         public TelaCadastroFuncionario(Funcionario funcionario)
         {
@@ -96,7 +96,7 @@ namespace Hamburgueria.Telas
         private void CarregarDgvFuncionarios(List<Funcionario> funcionarios = null)
         {
 
-
+            DgvFuncionarios.Rows.Clear();
 
             foreach (Funcionario funcionario in funcionarios == null ? _funcionarios : funcionarios)
             {
@@ -197,6 +197,33 @@ namespace Hamburgueria.Telas
         {
             List<Funcionario> ListaFuncionarios = Funcionario.Buscar(_funcionarios, CbbBuscar.SelectedIndex, TxtBuscar.Text);
             CarregarDgvFuncionarios(ListaFuncionarios);
+        }
+
+        private void DgvFuncionarios_SelectionChanged(object sender, EventArgs e)
+        {
+            if (DgvFuncionarios.Rows.Count < 1 || DgvFuncionarios.SelectedRows.Count < 1)
+                return;
+
+            try
+            {
+                _funcionarioSelecionado = _funcionarios.Find(a => a.Id == (int)DgvFuncionarios.SelectedRows[0].Cells[0].Value);
+
+                LblId.Text = _funcionarioSelecionado.Id.ToString();
+                TxtNome.Text = _funcionarioSelecionado.Nome.ToString();
+                TxtEmail.Text = _funcionarioSelecionado.Email.ToString();
+                TxtCargo.Text = _funcionarioSelecionado.Cargo.ToString();
+                TxtSexo.Text = _funcionarioSelecionado.Sexo.ToString();
+                DtpDataNascimento.Value = _funcionarioSelecionado.DtNascimento;
+                CbAtivo.Checked = _funcionarioSelecionado.Ativo;
+                BtnCadastrar.Enabled = false;
+                BtnAlterar.Enabled = true;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 

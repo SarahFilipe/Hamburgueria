@@ -49,12 +49,12 @@
             this.BtnAlterar = new System.Windows.Forms.Button();
             this.BtnCadastrar = new System.Windows.Forms.Button();
             this.GbBusca = new System.Windows.Forms.GroupBox();
+            this.BtnBuscar = new System.Windows.Forms.Button();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.CbbBuscar = new System.Windows.Forms.ComboBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DgvFuncionarios = new System.Windows.Forms.DataGridView();
-            this.BtnBuscar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.GbBusca.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvFuncionarios)).BeginInit();
@@ -63,11 +63,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(12, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(250, 46);
+            this.label1.Size = new System.Drawing.Size(303, 50);
             this.label1.TabIndex = 2;
             this.label1.Text = "Funcionários";
             // 
@@ -315,7 +315,23 @@
             this.GbBusca.Size = new System.Drawing.Size(607, 63);
             this.GbBusca.TabIndex = 19;
             this.GbBusca.TabStop = false;
-            this.GbBusca.Text = "Buscar Produtos";
+            this.GbBusca.Text = "Buscar Funcionários";
+            // 
+            // BtnBuscar
+            // 
+            this.BtnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnBuscar.BackColor = System.Drawing.Color.White;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBuscar.ForeColor = System.Drawing.Color.Black;
+            this.BtnBuscar.Location = new System.Drawing.Point(513, 25);
+            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(75, 29);
+            this.BtnBuscar.TabIndex = 17;
+            this.BtnBuscar.Text = "Buscar";
+            this.BtnBuscar.UseVisualStyleBackColor = false;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // TxtBuscar
             // 
@@ -368,24 +384,10 @@
             this.DgvFuncionarios.Location = new System.Drawing.Point(894, 78);
             this.DgvFuncionarios.Name = "DgvFuncionarios";
             this.DgvFuncionarios.RowHeadersVisible = false;
+            this.DgvFuncionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvFuncionarios.Size = new System.Drawing.Size(607, 602);
             this.DgvFuncionarios.TabIndex = 20;
-            // 
-            // BtnBuscar
-            // 
-            this.BtnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnBuscar.BackColor = System.Drawing.Color.White;
-            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscar.ForeColor = System.Drawing.Color.Black;
-            this.BtnBuscar.Location = new System.Drawing.Point(513, 25);
-            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(75, 29);
-            this.BtnBuscar.TabIndex = 17;
-            this.BtnBuscar.Text = "Buscar";
-            this.BtnBuscar.UseVisualStyleBackColor = false;
-            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            this.DgvFuncionarios.SelectionChanged += new System.EventHandler(this.DgvFuncionarios_SelectionChanged);
             // 
             // TelaCadastroFuncionario
             // 
