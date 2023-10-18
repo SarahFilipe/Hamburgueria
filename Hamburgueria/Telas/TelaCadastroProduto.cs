@@ -16,6 +16,7 @@ namespace Hamburgueria.Telas
         private Funcionario _funcionarioLogado;
         private List<Produto> _produtos = new List<Produto>();
         private List<TipoProduto> _tiposprodutos = new List<TipoProduto>();
+        private Produto _produtoSelecionado;
 
         public TelaCadastroProduto(Funcionario funcionario)
         {
@@ -42,7 +43,7 @@ namespace Hamburgueria.Telas
 
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
+
         }
 
         private void BtnBuscarImagem_Click(object sender, EventArgs e)
@@ -123,16 +124,16 @@ namespace Hamburgueria.Telas
 
         private void LimparCampos()
         {
-            LblId.Text = string.Empty;            
-            TxtNome.Clear();                        
+            LblId.Text = string.Empty;
+            TxtNome.Clear();
             CbAtivo.Checked = true;
             CbAtivo.Enabled = false;
             DgvProdutos.ClearSelection();
             BtnCadastrar.Enabled = true;
-            BtnAlterar.Enabled = false;            
+            BtnAlterar.Enabled = false;
             CbbBuscar.SelectedValue = 1;
             BtnAlterar.BackColor = Color.Silver;
-            
+
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -142,7 +143,87 @@ namespace Hamburgueria.Telas
 
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
-            List<TipoProduto> ListaAlunosFiltrada = TipoProduto.Buscar(_tiposprodutos, (int)CbbBuscar.SelectedValue, TxtBuscar.Text);
+            List<TipoProduto> ListaProdutosFiltrada = TipoProduto.Buscar(_tiposprodutos, (int)CbbBuscar.SelectedValue, TxtBuscar.Text);
+            CarregaDgvProdutos(ListaProdutosFiltrada);
+        }
+
+        private void DgvProdutos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (DgvProdutos.Rows.Count < 1 || DgvProdutos.SelectedRows.Count < 1)
+                return;
+
+            try
+            {
+                _produtoSelecionado = _produtos.Find(a => a.Id == (int)DgvProdutos.SelectedRows[0].Cells[0].Value);
+
+                LblId.Text = _produtoSelecionado.Id.ToString();
+                TxtNome.Text = _produtoSelecionado.NomeProduto.ToString();
+                TxtPreço.Text = _produtoSelecionado.ValorProduto.ToString();
+                TxtDescricao.Text = _produtoSelecionado.Descricao.ToString();
+                CbbTipo.Items.Clear();
+                CbAtivo.Checked = _produtoSelecionado.Ativo;
+                BtnCadastrar.Enabled = false;
+                BtnAlterar.Enabled = true;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnAlterar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _produtoSelecionado.NomeProduto = TxtNome.Text;
+                _produtoSelecionado.ValorProduto = Convert.ToDouble(TxtPreço.Text);
+                _produtoSelecionado.TipoProduto.Id = (int)CbbTipo.SelectedValue;
+                _produtoSelecionado.Descricao = TxtDescricao.Text;
+
+                _produtoSelecionado.Alterar(_produtos);
+                CarregaDgvProdutos();
+                LimparCampos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DgvProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (_produtoSelecionado.Ativo == true)
+                {
+
+                    DialogResult dr = MessageBox.Show($"Você deseja remover o {_produtoSelecionado.NomeProduto}?"
+                               , "Remover Aluno"
+                               , MessageBoxButtons.YesNo
+                               , MessageBoxIcon.Question);
+
+                    if (dr == DialogResult.Yes)
+                    {
+                        _produtoSelecionado.Ativo = false;
+                        _produtoSelecionado.Deletar(_produtos);
+                        CarregaDgvProdutos();
+                        LimparCampos();
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TelaCadastroProduto_Shown(object sender, EventArgs e)
+        {
+            TxtBuscar.Focus();
         }
     }
 }

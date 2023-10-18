@@ -61,6 +61,9 @@
             // 
             // DgvProdutos
             // 
+            this.DgvProdutos.AllowUserToAddRows = false;
+            this.DgvProdutos.AllowUserToDeleteRows = false;
+            this.DgvProdutos.AllowUserToResizeRows = false;
             this.DgvProdutos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -71,6 +74,8 @@
             this.DgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvProdutos.Size = new System.Drawing.Size(607, 602);
             this.DgvProdutos.TabIndex = 0;
+            this.DgvProdutos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProdutos_CellDoubleClick);
+            this.DgvProdutos.SelectionChanged += new System.EventHandler(this.DgvProdutos_SelectionChanged);
             // 
             // label1
             // 
@@ -271,6 +276,7 @@
             this.BtnAlterar.TabIndex = 12;
             this.BtnAlterar.Text = "Alterar";
             this.BtnAlterar.UseVisualStyleBackColor = false;
+            this.BtnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
             // 
             // button3
             // 
@@ -412,6 +418,7 @@
             this.Text = "TelaCadastroProduto";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TelaCadastroProduto_Load);
+            this.Shown += new System.EventHandler(this.TelaCadastroProduto_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.DgvProdutos)).EndInit();
             this.GbBusca.ResumeLayout(false);
             this.GbBusca.PerformLayout();

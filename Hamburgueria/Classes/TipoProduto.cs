@@ -86,9 +86,6 @@ namespace Hamburgueria.Classes
                 case 5:
                     return tiposProdutos.Where(a => a.Descricao.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
 
-                case 6:
-                    return tiposProdutos.Where(a => a.Descricao.ToUpper().Normalize(NormalizationForm.FormD).Contains(texto.ToUpper().Normalize(NormalizationForm.FormD))).ToList();
-
                 default:
                     return tiposProdutos;
 
