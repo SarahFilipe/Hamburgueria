@@ -247,6 +247,7 @@ namespace Hamburgueria.Telas
             {
 
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
             }
         }
     }
