@@ -164,14 +164,14 @@ namespace Hamburgueria.Telas
             {
                 try
                 {
-                    _FuncionarioSelecionado.Nome = TxtNome.Text;
-                    _FuncionarioSelecionado.Email = TxtEmail.Text;
-                    _FuncionarioSelecionado.DtNascimento = DtpDataNascimento.Value;
-                    _FuncionarioSelecionado.Sexo = TxtSexo.Text;
-                    _FuncionarioSelecionado.Cargo = TxtCargo.Text;
+                    _funcionarioSelecionado.Nome = TxtNome.Text;
+                    _funcionarioSelecionado.Email = TxtEmail.Text;
+                    _funcionarioSelecionado.DtNascimento = DtpDataNascimento.Value;
+                    _funcionarioSelecionado.Sexo = TxtSexo.Text;
+                    _funcionarioSelecionado.Cargo = TxtCargo.Text;
 
 
-                    _FuncionarioSelecionado.Alterar(_funcionarios);
+                    _funcionarioSelecionado.Alterar(_funcionarios);
                     CarregarDgvFuncionarios();
 
                 }
@@ -218,6 +218,30 @@ namespace Hamburgueria.Telas
                 BtnCadastrar.Enabled = false;
                 BtnAlterar.Enabled = true;
 
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnReativar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dr = MessageBox.Show($"Você deseja reativar o funcionário  {_funcionarioSelecionado.Nome}?"
+                                , "Reativar Funcionário"
+                                , MessageBoxButtons.YesNo
+                                , MessageBoxIcon.Question);
+
+                if (dr == DialogResult.Yes)
+                {
+                    _funcionarioSelecionado.Ativo = true;
+                    _funcionarioSelecionado.Reativar(_funcionarios);
+                    CarregarDgvFuncionarios();
+                    LimparCampos();
+                }
             }
             catch (Exception ex)
             {
