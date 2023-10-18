@@ -55,6 +55,7 @@
             this.CbbBuscar = new System.Windows.Forms.ComboBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DgvFuncionarios = new System.Windows.Forms.DataGridView();
+            this.BtnReativar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.GbBusca.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvFuncionarios)).BeginInit();
@@ -281,6 +282,7 @@
             this.BtnAlterar.Size = new System.Drawing.Size(125, 46);
             this.BtnAlterar.TabIndex = 16;
             this.BtnAlterar.Text = "Alterar";
+            this.BtnAlterar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnAlterar.UseVisualStyleBackColor = false;
             this.BtnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
             // 
@@ -377,6 +379,9 @@
             // 
             // DgvFuncionarios
             // 
+            this.DgvFuncionarios.AllowUserToAddRows = false;
+            this.DgvFuncionarios.AllowUserToDeleteRows = false;
+            this.DgvFuncionarios.AllowUserToResizeRows = false;
             this.DgvFuncionarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -389,12 +394,29 @@
             this.DgvFuncionarios.TabIndex = 20;
             this.DgvFuncionarios.SelectionChanged += new System.EventHandler(this.DgvFuncionarios_SelectionChanged);
             // 
+            // BtnReativar
+            // 
+            this.BtnReativar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnReativar.BackColor = System.Drawing.Color.White;
+            this.BtnReativar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnReativar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnReativar.ForeColor = System.Drawing.Color.Black;
+            this.BtnReativar.Location = new System.Drawing.Point(695, 596);
+            this.BtnReativar.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnReativar.Name = "BtnReativar";
+            this.BtnReativar.Size = new System.Drawing.Size(154, 46);
+            this.BtnReativar.TabIndex = 21;
+            this.BtnReativar.Text = "Reativar";
+            this.BtnReativar.UseVisualStyleBackColor = false;
+            this.BtnReativar.Click += new System.EventHandler(this.BtnReativar_Click);
+            // 
             // TelaCadastroFuncionario
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(1502, 692);
+            this.Controls.Add(this.BtnReativar);
             this.Controls.Add(this.DgvFuncionarios);
             this.Controls.Add(this.GbBusca);
             this.Controls.Add(this.BtnNovo);
@@ -447,5 +469,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.DataGridView DgvFuncionarios;
         private System.Windows.Forms.Button BtnBuscar;
+        private System.Windows.Forms.Button BtnReativar;
     }
 }

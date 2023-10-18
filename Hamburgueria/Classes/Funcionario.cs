@@ -121,7 +121,23 @@ namespace Hamburgueria.Classes
             }
 
         }
+        public void Reativar(List< Funcionario > funcionarios)
+        {
+            string query = ($"update Funcionario set Ativo = '{1}' where Id = {Id} ");
+            Conexao cn = new Conexao(query);
 
+            try
+            {
+                cn.AbrirConexao();
+                cn.comando.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public void CadastrarFuncionario(List<Funcionario> funcionarios)
         {
             string querry = ($"Insert into Funcionarios values ('{Nome}','{Email}','{Senha}', '{DtNascimento}', '{Sexo}', 1, '{Cargo}');");
